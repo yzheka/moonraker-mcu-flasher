@@ -24,7 +24,7 @@ To install the MCU_FLASHER component, follow these steps:
 
 3. Update your `moonraker.conf` file by adding `[mcu_flasher mcu_name]` sections for each MCU you wish to manage.
 
-4. Add `[include macros/mcu_flasher.cfg]` to your `printer.cfg` file.
+4. Add `[include mcu_flasher.cfg]` to your `printer.cfg` file.
 
 ## Configuration
 
