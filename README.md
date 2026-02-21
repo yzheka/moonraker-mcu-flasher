@@ -16,15 +16,15 @@ To install the MCU_FLASHER component, follow these steps:
 2. Create symbolic links for the necessary files:
 
    ```bash
-   ln -s moonraker-mcu-flasher/moonraker/mcu_flasher.py moonraker/moonraker/components/mcu_flasher.py
-   ln -s moonraker-mcu-flasher/klipper_macro/mcu_flasher.klipper_macro.cfg printer_data/config/macros/mcu_flasher.cfg
+   ln -s ~/moonraker-mcu-flasher/moonraker/mcu_flasher.py ~/moonraker/moonraker/components/mcu_flasher.py
+   ln -s ~/moonraker-mcu-flasher/klipper_macro/mcu_flasher.klipper_macro.cfg ~/printer_data/config/mcu_flasher.cfg
    ```
 
     >⚠️ Ensure that the paths are consistent with your installation
 
 3. Update your `moonraker.conf` file by adding `[mcu_flasher mcu_name]` sections for each MCU you wish to manage.
 
-4. Add `[include macros/mcu_flasher.cfg]` to your `printer.cfg` file.
+4. Add `[include mcu_flasher.cfg]` to your `printer.cfg` file.
 
 ## Configuration
 
