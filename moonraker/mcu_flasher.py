@@ -43,7 +43,15 @@ class McuFlasher:
         if self.kconn.is_printing():
             raise self.server.error("Flashing Refused: Klippy is printing")
         mcu = mcu.lower()
-        ks = self.mcus.keys() if mcu == "all" else [mcu]
+        ks = []
+        if mcu == "all":
+            ks = self.mcus.keys()
+        elif mcu in self.mcus:
+            ks = [mcu]
+        else:
+            msg = f"Flashing Refused: unkown mcu '{mcu}', available mcus are: [{', '.join(self.mcus.keys())}]"
+            self.server.send_event('server:gcode_response', f"!! {msg}")
+            raise self.server.error(msg)
         machine: Machine = self.server.lookup_component("machine")
         await machine.do_service_action("stop", "klipper")
         for m in ks:
